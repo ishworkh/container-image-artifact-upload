@@ -1,0 +1,40 @@
+{
+  "name": "container-image-artifact-upload",
+  "version": "1.0.0",
+  "description": "Github action to upload container image as artifact",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --mode production --entry ./src/main.js --target node --output-path dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ishworkh/container-image-artifact-upload"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "docker",
+    "podman",
+    "image",
+    "artifact",
+    "upload"
+  ],
+  "author": "Ishwor Khadka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ishworkh/container-image-artifact-upload/issues"
+  },
+  "homepage": "https://github.com/ishworkh/container-image-artifact-upload",
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@actions/core": "^1.9",
+    "container-image-artifact": "ishworkh/container-image-artifact.git#semver:^1.0",
+    "original-fs": "^1.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.74",
+    "webpack-cli": "^4.10"
+  }
+}
