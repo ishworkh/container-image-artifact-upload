@@ -33,7 +33,7 @@ jobs:
           image: "test_image:${{ github.run_id }}"
           retention_days: "1"
           container_engine: "podman"
-
+    
   run-e2e-test:
     needs: build-test-image
     runs-on: ubuntu-latest
