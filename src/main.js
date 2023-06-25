@@ -13,7 +13,7 @@ async function runAction(getInput, writeOutput) {
     const retentionDays = parseInt(getInput(INPUT_RETENTION_DAYS));
     const containerEngineName = getInput(INPUT_CONTAINER_ENGINE);
 
-    const upload = getUploader(createArtifactUploader(), containerEngineName);
+    const upload = getUploader(createArtifactUploader(), containerEngineName.trim());
     const artifactName = await upload(imageName, retentionDays);
     writeOutput(OUTPUT_ARTIFACT_NAME, artifactName);
 }
@@ -21,5 +21,3 @@ async function runAction(getInput, writeOutput) {
 runAction(githubActionIO.getInput, githubActionIO.writeOutput)
     .then(() => console.log("Uploading finished"))
     .catch((err) => githubActionIO.fail(err));
-
-
