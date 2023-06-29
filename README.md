@@ -16,7 +16,7 @@ See [container-image-artifact-download](https://github.com/ishworkh/container-im
 
 ### `container_engine`
 
-**Optional** Container engine to use of packaging image for the upload.
+**Optional** Container engine to use of packaging image for the upload. Defaults to `docker`.
 
 ## Outputs
 
@@ -25,6 +25,8 @@ See [container-image-artifact-download](https://github.com/ishworkh/container-im
 Name of artifact created in the process. Eg. `action_image_artifact_foo_latest` for `foo:latest` image.
 
 ## Example
+
+Default `docker` container engine,
 
 ```yaml
 ...
@@ -41,10 +43,33 @@ jobs:
         EOF
 
     - name: Upload image
-      uses: ishworkh/docker-image-artifact-upload@v2.0.1
+      uses: ishworkh/container-image-artifact-upload@v1.0.0
       with:
         image: "test_image:latest"
 
+```
+
+Explicit `podman` engine,
+
+```yaml
+...
+jobs:
+  build_and_upload:
+    - name: Checkout project
+      uses: actions/checkout@v2
+      
+    - name: Build image
+      run: |
+        docker build -t test_image:latest -<<EOF
+        FROM busybox
+        RUN touch abc.txt
+        EOF
+
+    - name: Upload image
+      uses: ishworkh/container-image-artifact-upload@v1.0.0
+      with:
+        image: "test_image:latest"
+        container_engine: "podman"
 ```
 
 With `rentention_days`,
@@ -64,7 +89,7 @@ jobs:
         EOF
 
     - name: Upload image
-      uses: ishworkh/docker-image-artifact-upload@v2.0.1
+      uses: ishworkh/container-image-artifact-upload@v1.0.0
       with:
         image: "test_image:latest"
         retention_days: "2"
@@ -93,7 +118,7 @@ jobs:
         load: true
 
     - name: Upload image
-      uses: ishworkh/docker-image-artifact-upload@v2.0.1
+      uses: ishworkh/container-image-artifact-upload@v1.0.0
       with:
         image: "test_image:latest"
 
@@ -101,14 +126,9 @@ jobs:
 
 ## Changelogs
 
-### `v2.0.0`
+### `v1.0.0`
 
-- Bump `docker-image-artifact` to `v2.0.0`.
-- Introduce semver versioning for github action releases. No versions with just major segment i.e `v1` will be released from now on.
-
-### `v1`
-
-- Old release
+- First release
 
 ## License
 
