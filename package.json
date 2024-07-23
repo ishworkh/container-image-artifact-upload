@@ -1,6 +1,6 @@
 {
   "name": "container-image-artifact-upload",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Github action to upload container image as artifact",
   "scripts": {
     "build": "./node_modules/.bin/webpack --mode production --entry ./src/main.js --target node --output-path dist/"
@@ -29,12 +29,12 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "@actions/core": "^1.9",
-    "container-image-artifact": "ishworkh/container-image-artifact.git#semver:^1.0",
+    "@actions/core": "^1.10",
+    "container-image-artifact": "ishworkh/container-image-artifact.git#update_dependencies",
     "original-fs": "^1.2"
   },
   "devDependencies": {
-    "webpack": "^5.74",
-    "webpack-cli": "^4.10"
+    "webpack": "^5.93",
+    "webpack-cli": "^5.1"
   }
 }
