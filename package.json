@@ -1,6 +1,6 @@
 {
   "name": "container-image-artifact-upload",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Github action to upload container image as artifact",
   "scripts": {
     "build": "./node_modules/.bin/webpack --mode production --entry ./src/main.js --target node --output-path dist/"
