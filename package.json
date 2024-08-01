@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.10",
-    "container-image-artifact": "ishworkh/container-image-artifact.git#update_dependencies",
+    "container-image-artifact": "ishworkh/container-image-artifact.git#semver:^2.0",
     "original-fs": "^1.2"
   },
   "devDependencies": {
