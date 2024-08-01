@@ -43,7 +43,7 @@ jobs:
         EOF
 
     - name: Upload image
-      uses: ishworkh/container-image-artifact-upload@v1.1.1
+      uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "test_image:latest"
 
@@ -66,7 +66,7 @@ jobs:
         EOF
 
     - name: Upload image
-      uses: ishworkh/container-image-artifact-upload@v1.1.1
+      uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "test_image:latest"
         container_engine: "podman"
@@ -89,7 +89,7 @@ jobs:
         EOF
 
     - name: Upload image
-      uses: ishworkh/container-image-artifact-upload@v1.1.1
+      uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "test_image:latest"
         retention_days: "2"
@@ -118,13 +118,21 @@ jobs:
         load: true
 
     - name: Upload image
-      uses: ishworkh/container-image-artifact-upload@v1.1.1
+      uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "test_image:latest"
 
 ```
 
 ## Changelogs
+
+### `v2.0.0`
+
+- Use v4 of @actions/upload-artifact
+- Update other dependencies
+
+Migration:
+- Use >=v2.0.0 for ishworkh/container-image-artifact-download
 
 ### `v1.1.1`
 
